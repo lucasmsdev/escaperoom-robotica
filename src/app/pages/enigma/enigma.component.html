@@ -1,0 +1,34 @@
+<!-- enigma.component.html -->
+<div class="book-container">
+  <h1>{{ book?.title || 'Título do Livro' }}</h1>
+  <img [src]="book?.image || 'assets/default-image.jpg'" alt="Capa do Livro">
+
+  <div class="enigma-container">
+    <h2>Resolva este enigma:</h2>
+    <h4>"{{ enigma }}"</h4>
+  </div>
+
+  <div class="dica-container">
+    <h2>Dicas:</h2>
+    <button
+      class="dica-button"
+      *ngFor="let i of [0, 1, 2, 3, 4]" 
+      (click)="showTip(i + 1)"
+    >
+      Dica {{ i + 1 }}
+    </button>
+  </div>
+
+  <div class="pontuacao-container">
+    <h2>Pontuação:</h2>
+    <p>{{ pontuacao }}</p>
+  </div>
+
+  <div *ngIf="showPopup" class="popup">
+    <div class="popup-content">
+      <button (click)="closePopup()">Fechar</button>
+      <h3>Dica {{ tipNumber }}</h3>
+      <p>{{ getTipDescription() }}</p>
+    </div>
+  </div>
+</div>
