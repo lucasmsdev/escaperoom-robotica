@@ -36,10 +36,12 @@ export class EnigmaComponent implements OnInit {
   }
 
   showTip(tipNumber: number) {
-    if (this.pontuacao >= 200 && !this.dicaAberta[tipNumber]) {
+    const tipValue = tipNumber * 100;
+
+    if (this.pontuacao >= tipValue && !this.dicaAberta[tipNumber]) {
       this.tipNumber = tipNumber;
       this.showPopup = true;
-      this.pontuacao -= 200;
+      this.pontuacao -= tipValue;
       this.dicaAberta[tipNumber] = true;
 
       // Salvar pontuação para o grupo atual
