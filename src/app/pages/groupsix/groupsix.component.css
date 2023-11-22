@@ -1,8 +1,11 @@
-/* enigma-list.component.css */
+/* groupsix.component.css */
 
 .enigma-list-container {
   max-width: 600px;
   margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .enigma-item {
@@ -16,7 +19,7 @@
 .enigma-item p {
   margin: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Centralizar os enigmas */
   align-items: center;
 }
 
@@ -40,4 +43,20 @@
   right: 10px;
   display: flex;
   align-items: center;
+}
+
+.encerrar-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.encerrar-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
 }

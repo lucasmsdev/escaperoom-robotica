@@ -1,4 +1,4 @@
-<!-- enigma-list.component.html -->
+<!-- groupsix.component.html -->
 
 <div class="enigma-list-container">
     <h2>Lista de Enigmas</h2>
@@ -13,5 +13,7 @@
       </p>
       <button (click)="selectEnigma(i)">Selecionar</button>
     </div>
+  
+    <button (click)="encerrarJogo()" class="encerrar-button" [disabled]="isJogoEncerrado">Encerrar Jogo</button>
   </div>
   

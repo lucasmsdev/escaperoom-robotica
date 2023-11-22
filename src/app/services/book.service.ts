@@ -7,6 +7,9 @@ import { Book } from '../models/book.model';
   providedIn: 'root',
 })
 export class BookService {
+  getCurrentGroupId() {
+      throw new Error("Method not implemented.");
+  }
   private readonly BOOKS_KEY = 'books_data';
   private readonly PONTUACAO_KEY_PREFIX = 'pontuacao_';
 
@@ -64,5 +67,19 @@ export class BookService {
   getAllEnigmas(): string[] {
     const books: Book[] = this.getBooks() || [];
     return books.map((book) => book.enigma);
+  }
+
+  getEnigmaOrder(groupId: number): string[] | null {
+    const enigmaOrderKey = this.getEnigmaOrderKey(groupId);
+    return this.localStorageService.getData(enigmaOrderKey);
+  }
+  
+  saveEnigmaOrder(groupId: number, enigmaOrder: string[]): void {
+    const enigmaOrderKey = this.getEnigmaOrderKey(groupId);
+    this.localStorageService.saveData(enigmaOrderKey, enigmaOrder);
+  }
+  
+  private getEnigmaOrderKey(groupId: number): string {
+    return `enigma_order_${groupId}`;
   }
 }

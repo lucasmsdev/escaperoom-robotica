@@ -1,7 +1,8 @@
 // groupsix.component.ts
 
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, TemplateRef } from "@angular/core";
 import { BookService } from "src/app/services/book.service";
+
 
 @Component({
   selector: 'app-groupsix',
@@ -12,34 +13,28 @@ import { BookService } from "src/app/services/book.service";
 export class GroupsixComponent implements OnInit {
   enigmas: string[] = [];
   selectedEnigmaIndex: number | null = null;
+  isJogoEncerrado: boolean = false;
+  
 
   constructor(private bookService: BookService) {}
 
   ngOnInit(): void {
-    // Obter todos os enigmas
     const originalEnigmas = this.bookService.getAllEnigmas() || [];
-
-    // Embaralhar os enigmas
     this.enigmas = this.shuffleEnigmas(originalEnigmas);
-
-    // Inicializar o índice do enigma selecionado como nulo
     this.selectedEnigmaIndex = null;
   }
 
   selectEnigma(index: number): void {
-    // Marcar o enigma selecionado
     this.selectedEnigmaIndex = index;
   }
 
   moveEnigmaUp(): void {
-    // Mover o enigma selecionado para cima na lista
     if (this.selectedEnigmaIndex !== null && this.selectedEnigmaIndex > 0) {
       this.swapEnigmas(this.selectedEnigmaIndex, this.selectedEnigmaIndex - 1);
     }
   }
 
   moveEnigmaDown(): void {
-    // Mover o enigma selecionado para baixo na lista
     if (
       this.selectedEnigmaIndex !== null &&
       this.selectedEnigmaIndex < this.enigmas.length - 1
@@ -48,8 +43,18 @@ export class GroupsixComponent implements OnInit {
     }
   }
 
+ encerrarJogo(): void {
+  const enigmasOrdenados = [...this.enigmas].sort();
+  const jogoEncerrado = this.arraysIguais(this.enigmas, enigmasOrdenados);
+
+  if (jogoEncerrado) {
+    alert('Parabéns! Você acertou a ordem dos enigmas.');
+  } else {
+    alert('Ordene os enigmas corretamente antes de encerrar o jogo.');
+  }
+}
+
   private shuffleEnigmas(enigmas: string[]): string[] {
-    // Embaralhar os enigmas utilizando o algoritmo Fisher-Yates
     const shuffledEnigmas = [...enigmas];
     for (let i = shuffledEnigmas.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -59,12 +64,13 @@ export class GroupsixComponent implements OnInit {
   }
 
   private swapEnigmas(indexA: number, indexB: number): void {
-    // Trocar os enigmas nas posições indexA e indexB
     const temp = this.enigmas[indexA];
     this.enigmas[indexA] = this.enigmas[indexB];
     this.enigmas[indexB] = temp;
-
-    // Atualizar o índice do enigma selecionado após a troca
     this.selectedEnigmaIndex = indexB;
+  }
+
+  private arraysIguais(arr1: string[], arr2: string[]): boolean {
+    return JSON.stringify(arr1) === JSON.stringify(arr2);
   }
 }
