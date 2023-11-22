@@ -11,7 +11,7 @@ import { Book } from 'src/app/models/book.model';
 })
 export class BookFormComponent {
   book: Book = { groupId: 1, title: '', image: '', enigma: '', hints: [] };
-  groupIds: number[] = [1, 2, 3, 4, 5, 6];
+  groupIds: number[] = [1, 2, 3, 4, 5];
   enigmas: { [key: number]: string } = {};
   hints: { [key: number]: string[] } = {};
 

@@ -9,6 +9,7 @@ import { EnigmaComponent } from './pages/enigma/enigma.component';
 import { HomeComponent } from './pages/home/home.component';
 import { GroupsComponent } from './pages/groups/groups.component';
 import { BookFormComponent } from './pages/book-form/book-form.component';
+import { GroupsixComponent } from './pages/groupsix/groupsix.component';
 
 
 
@@ -19,6 +20,7 @@ import { BookFormComponent } from './pages/book-form/book-form.component';
     HomeComponent,
     GroupsComponent,
     BookFormComponent,
+    GroupsixComponent
    
    
   ],

@@ -1,0 +1,21 @@
+/* enigma-list.component.css */
+
+.enigma-list-container {
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  
+  .enigma-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  h2 {
+    color: #333;
+  }
+  
+  h3 {
+    color: #007bff;
+  }
+  

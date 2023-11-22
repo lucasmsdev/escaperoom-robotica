@@ -60,4 +60,9 @@ export class BookService {
   private getPontuacaoKey(groupId: number): string {
     return `${this.PONTUACAO_KEY_PREFIX}${groupId}`;
   }
+
+  getAllEnigmas(): string[] {
+    const books: Book[] = this.getBooks() || [];
+    return books.map((book) => book.enigma);
+  }
 }

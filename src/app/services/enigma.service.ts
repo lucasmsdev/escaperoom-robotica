@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class EnigmaService {
   private enigmasByGroup: { [key: number]: string } = {
-    1: "Sou um objeto mágico, escondido nas páginas de um livro. Quando você me lê, para um mundo mágico eu o levo. Quem sou eu? (Grupo 1)",
+    1: "Enigma para o Grupo 1",
     2: "Enigma para o Grupo 2",
     3: "Enigma para o Grupo 3",
     4: "Enigma para o Grupo 4",

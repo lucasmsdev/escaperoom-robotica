@@ -16,4 +16,6 @@ export class GroupsComponent {
     this.enigmaService.setEnigmaByGroup(grupo);
     this.router.navigate(['enigma']);
   }
+  
 }
+ 
