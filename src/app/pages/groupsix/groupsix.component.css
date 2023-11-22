@@ -1,21 +1,43 @@
 /* enigma-list.component.css */
 
 .enigma-list-container {
-    max-width: 800px;
-    margin: 20px auto;
-  }
-  
-  .enigma-item {
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  h2 {
-    color: #333;
-  }
-  
-  h3 {
-    color: #007bff;
-  }
-  
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.enigma-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  position: relative;
+}
+
+.enigma-item p {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.enigma-item button {
+  margin-left: 10px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.enigma-item button[disabled] {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.enigma-item span {
+  position: absolute;
+  right: 10px;
+  display: flex;
+  align-items: center;
+}

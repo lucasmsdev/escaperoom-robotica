@@ -3,8 +3,15 @@
 <div class="enigma-list-container">
     <h2>Lista de Enigmas</h2>
   
-    <div *ngFor="let enigma of enigmas" class="enigma-item">
-      <p>{{ enigma }}</p>
+    <div *ngFor="let enigma of enigmas; let i = index" class="enigma-item">
+      <p>
+        {{ i + 1 }}. {{ enigma }}
+        <span *ngIf="selectedEnigmaIndex === i">
+          <button (click)="moveEnigmaUp()" [disabled]="i === 0">▲</button>
+          <button (click)="moveEnigmaDown()" [disabled]="i === enigmas.length - 1">▼</button>
+        </span>
+      </p>
+      <button (click)="selectEnigma(i)">Selecionar</button>
     </div>
   </div>
   
